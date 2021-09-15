@@ -1,0 +1,18 @@
+.menu {
+  background: #2978b5;
+  height: 100%;
+  color: white;
+  font-size: 20px;
+}
+
+.menu-title {
+  padding: 8px 4px;
+}
+
+.menu-item {
+  padding: 8px 4px;
+
+  &:hover {
+    background: #0061a8;
+  }
+}
