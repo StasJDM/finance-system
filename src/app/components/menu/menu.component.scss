@@ -1,16 +1,19 @@
 .menu {
   background: #2978b5;
+  width: 220px;
   height: 100%;
   color: white;
   font-size: 20px;
 }
 
 .menu-title {
-  padding: 8px 4px;
+  padding: 8px 16px;
+  cursor: pointer;
 }
 
 .menu-item {
-  padding: 8px 4px;
+  padding: 8px 16px;
+  cursor: pointer;
 
   &:hover {
     background: #0061a8;
