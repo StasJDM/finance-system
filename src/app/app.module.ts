@@ -10,6 +10,9 @@ import { ExpensesPageComponent } from './pages/expenses-page/expenses-page.compo
 import { TableComponent } from './components/table/table.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { InputComponent } from './components/input/input.component';
+import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import { MatTableModule } from '@angular/material/table';
     IncomePageComponent,
     ExpensesPageComponent,
     TableComponent,
+    LoginPageComponent,
+    InputComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,
