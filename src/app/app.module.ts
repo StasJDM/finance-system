@@ -13,6 +13,7 @@ import { MatTableModule } from '@angular/material/table';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { InputComponent } from './components/input/input.component';
 import { ButtonComponent } from './components/button/button.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,8 @@ import { ButtonComponent } from './components/button/button.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTableModule,
+
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
