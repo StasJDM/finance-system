@@ -17,13 +17,15 @@ export class AuthService {
     private _jwtHelper: JwtHelperService
   ) {}
 
-  public isAuthenticated(): boolean {
-    const token = localStorage.getItem('access_token') || '';
-
-    return !this._jwtHelper.isTokenExpired(token);
+  public getToken(): string {
+    return localStorage.getItem('access_token') || '';
   }
 
-  login(username: string, password: string): Observable<any> {
+  public isAuthenticated(): boolean {
+    return !this._jwtHelper.isTokenExpired(this.getToken());
+  }
+
+  public login(username: string, password: string): Observable<any> {
     return this._apiService
       .post('/auth/login', {
         username,
