@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginPageComponent implements OnInit {
   public form: FormGroup;
+  public isError = false;
 
   constructor(
     private _fb: FormBuilder,
@@ -25,10 +26,16 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {}
 
   login() {
-    console.log('==>', this.form.value);
     const { username, password } = this.form.value;
-    this._authService.login(username, password).subscribe((res) => {
-      console.log(res);
-    });
+    this._authService.login(username, password).subscribe(
+      (res) => {
+        this.isError = false;
+        this._router.navigateByUrl('/');
+      },
+      (err) => {
+        this.isError = true;
+        this.form.reset();
+      }
+    );
   }
 }

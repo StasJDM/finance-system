@@ -1,6 +1,9 @@
 <div class="login-page">
   <div class="form-container">
     <h2>Вход в приложение</h2>
+    <div *ngIf="isError" class="error-container">
+      <span>Login failed</span>
+    </div>
     <form [formGroup]="form" (ngSubmit)="login()">
       <app-input
         formControlName="username"
