@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input, OnInit } from '@angular/core';
+import { Component, forwardRef, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -13,11 +13,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
     },
   ],
 })
-export class ButtonComponent implements OnInit {
+export class ButtonComponent {
   @Input() text: string = '';
   @Input() variant: string = '';
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

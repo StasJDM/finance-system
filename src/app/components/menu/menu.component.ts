@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MenuItem, menuItems } from './menu-items';
 
 @Component({
@@ -6,9 +6,6 @@ import { MenuItem, menuItems } from './menu-items';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent {
   public menuItems: MenuItem[] = menuItems;
-  constructor() {}
-
-  ngOnInit(): void {}
 }

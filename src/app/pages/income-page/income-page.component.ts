@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-income-page',
   templateUrl: './income-page.component.html',
   styleUrls: ['./income-page.component.scss'],
 })
-export class IncomePageComponent implements OnInit {
+export class IncomePageComponent {
   public tableColumns = ['name', 'type', 'amount', 'date'];
   public incomeTableData = [
     {
@@ -24,8 +24,4 @@ export class IncomePageComponent implements OnInit {
     { name: 'Аванс за июнь', type: 'аванс', amount: 20000, date: '15.06.2021' },
     { name: 'Зарплата за июнь', type: 'зп', amount: 35000, date: '30.06.2021' },
   ];
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

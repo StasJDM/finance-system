@@ -12,10 +12,7 @@ export interface ILoginResponse {
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(
-    private _apiService: ApiService,
-    private _jwtHelper: JwtHelperService
-  ) {}
+  constructor(private _apiService: ApiService, private _jwtHelper: JwtHelperService) {}
 
   public getToken(): string {
     return localStorage.getItem('access_token') || '';
@@ -31,10 +28,6 @@ export class AuthService {
         username,
         password,
       })
-      .pipe(
-        tap((res: ILoginResponse) =>
-          localStorage.setItem('access_token', res.access_token)
-        )
-      );
+      .pipe(tap((res: ILoginResponse) => localStorage.setItem('access_token', res.access_token)));
   }
 }
