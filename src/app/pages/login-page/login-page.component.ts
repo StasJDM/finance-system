@@ -14,14 +14,14 @@ export class LoginPageComponent {
 
   constructor(private _fb: FormBuilder, private _authService: AuthService, private _router: Router) {
     this.form = this._fb.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required],
     });
   }
 
   login() {
-    const { username, password } = this.form.value;
-    this._authService.login(username, password).subscribe(
+    const { email, password } = this.form.value;
+    this._authService.login(email, password).subscribe(
       (res) => {
         this.isError = false;
         this._router.navigateByUrl('/');

@@ -22,10 +22,10 @@ export class AuthService {
     return !this._jwtHelper.isTokenExpired(this.getToken());
   }
 
-  public login(username: string, password: string): Observable<any> {
+  public login(email: string, password: string): Observable<any> {
     return this._apiService
       .post('/auth/login', {
-        username,
+        email,
         password,
       })
       .pipe(tap((res: ILoginResponse) => localStorage.setItem('access_token', res.access_token)));
