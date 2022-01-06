@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { MenuItem, menuItems } from './menu-items';
 
@@ -8,6 +8,7 @@ import { MenuItem, menuItems } from './menu-items';
   styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent {
+  @Input() public isEnabled: boolean = false;
   public menuItems: MenuItem[] = menuItems;
 
   constructor(private _router: Router) {

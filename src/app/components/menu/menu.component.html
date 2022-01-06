@@ -1,4 +1,4 @@
-<div class="menu">
+<div class="menu" *ngIf="isEnabled">
   <div class="menu-title"><b>Finance System</b></div>
   <ng-container *ngFor="let item of menuItems">
     <div
