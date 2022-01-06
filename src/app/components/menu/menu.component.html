@@ -1,7 +1,11 @@
 <div class="menu">
   <div class="menu-title"><b>Finance System</b></div>
   <ng-container *ngFor="let item of menuItems">
-    <div class="menu-item" [routerLink]="item.link">
+    <div
+      class="menu-item"
+      [ngClass]="{ active: item.isActive }"
+      [routerLink]="item.link"
+    >
       {{ item.title }}
     </div>
   </ng-container>

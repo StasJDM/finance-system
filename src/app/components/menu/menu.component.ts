@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { MenuItem, menuItems } from './menu-items';
 
 @Component({
@@ -8,4 +9,15 @@ import { MenuItem, menuItems } from './menu-items';
 })
 export class MenuComponent {
   public menuItems: MenuItem[] = menuItems;
+
+  constructor(private _router: Router) {
+    this._router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const url = event.urlAfterRedirects;
+        this.menuItems.forEach((item) => {
+          item.isActive = item.link === url;
+        });
+      }
+    });
+  }
 }

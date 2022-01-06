@@ -15,6 +15,15 @@
   padding: 8px 16px;
   cursor: pointer;
 
+  &.active {
+    font-weight: 800;
+    background: #003458;
+
+    &:hover {
+      background: #003458;
+    }
+  }
+
   &:hover {
     background: #0061a8;
   }
