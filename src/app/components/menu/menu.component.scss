@@ -4,10 +4,13 @@
   height: 100%;
   color: white;
   font-size: 20px;
+  position: fixed;
 }
 
 .menu-title {
-  padding: 8px 16px;
+  padding: 16px 16px;
+  border-bottom: 2px solid #fff;
+
   cursor: pointer;
 }
 
@@ -32,6 +35,6 @@
 .menu-items {
   display: flex;
   justify-content: space-between;
-  height: calc(100% - 37px);
+  height: calc(100% - 57px);
   flex-direction: column;
 }

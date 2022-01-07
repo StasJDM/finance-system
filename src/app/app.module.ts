@@ -26,6 +26,7 @@ import { registerLocaleData } from '@angular/common';
 import ru from '@angular/common/locales/ru';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CreateTransactionDialogComponent } from './dialogs/create-transaction-dialog/create-transaction-dialog.component';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 registerLocaleData(ru);
 
@@ -53,6 +54,9 @@ registerLocaleData(ru);
     ReactiveFormsModule,
     StoreModule.forRoot(reducers, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production, autoPause: true }),
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts'),
+    }),
   ],
   providers: [
     AuthGuard,

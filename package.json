@@ -24,6 +24,8 @@
     "@auth0/angular-jwt": "^5.0.2",
     "@ngrx/store": "^13.0.2",
     "@ngrx/store-devtools": "^13.0.2",
+    "echarts": "^5.2.2",
+    "ngx-echarts": "^8.0.1",
     "normalize.css": "^8.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",

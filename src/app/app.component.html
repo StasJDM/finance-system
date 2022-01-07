@@ -1,7 +1,7 @@
 <div class="app-container">
   <app-menu [isEnabled]="enabledNavigationMenu"></app-menu>
 
-  <div class="page">
+  <div class="page" [ngClass]="{ 'menu-margin': enabledNavigationMenu }">
     <router-outlet></router-outlet>
   </div>
 </div>

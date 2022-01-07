@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { ApiService } from './api.service';
 
 export interface Transaction {
@@ -22,12 +23,32 @@ export class TransactionsService {
     return this._apiService.get('/transactions', {});
   }
 
+  public getAllTransactionsAmount(): Observable<{ incoming: number; outgoing: number }> {
+    return this._apiService.get('/transactions/amount', {});
+  }
+
   public getIncomingTransactions(): Observable<Transaction[]> {
     return this._apiService.get('/transactions/incoming', {});
   }
 
+  public getIncomingTransactionsAmount(): Observable<number> {
+    return this._apiService.get('/transactions/incoming/amount', {}).pipe(map((res: { amount: number }) => res.amount));
+  }
+
+  public getIncomingTransactionsTop(): Observable<Transaction[]> {
+    return this._apiService.get('/transactions/incoming/top', {});
+  }
+
   public getOutgoingTransactions(): Observable<Transaction[]> {
     return this._apiService.get('/transactions/outgoing', {});
+  }
+
+  public getOutgoingTransactionsAmount(): Observable<number> {
+    return this._apiService.get('/transactions/outgoing/amount', {}).pipe(map((res: { amount: number }) => res.amount));
+  }
+
+  public getOutgoingTransactionsTop(): Observable<Transaction[]> {
+    return this._apiService.get('/transactions/outgoing/top', {});
   }
 
   public createTransaction(id_to: string, amount: number, label: string): Observable<Transaction> {

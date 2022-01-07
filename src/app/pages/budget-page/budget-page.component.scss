@@ -1,0 +1,61 @@
+.budget-page {
+  margin: 16px;
+
+  .action-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2px;
+
+    span {
+      color: #707070;
+      font-weight: 600;
+      font-size: 15px;
+    }
+  }
+
+  .card {
+    min-width: 520px;
+    width: 100%;
+    border: 1px solid #dadada;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 8px;
+  }
+
+  .graphs {
+    .amount-card {
+      display: flex;
+
+      .amount-info {
+        width: 300px;
+
+        .amount-field {
+          font-size: 32px;
+          margin: 32px 0;
+          font-weight: 300;
+        }
+      }
+
+      .pie-chart {
+        min-width: 300px;
+        max-width: 100%;
+        height: 300px;
+      }
+    }
+
+    .user-card {
+      .user-field {
+        font-size: 24px;
+        margin: 8px;
+        font-weight: 200;
+      }
+    }
+
+    .top-card {
+      h2 {
+        margin: 8px;
+      }
+    }
+  }
+}
