@@ -1,4 +1,13 @@
 <div class="income-page">
   <h2>Доходы</h2>
-  <app-table [columns]="tableColumns" [data]="incomeTableData"></app-table>
+  <hr />
+  <div class="action-panel">
+    <span>Всего: {{ transactions.length }} входящих транзакций</span>
+    <app-button
+      text="Создать транзакцию"
+      (click)="createTransaction()"
+    ></app-button>
+  </div>
+  <hr />
+  <app-table [columns]="tableColumns" [data]="tableData"></app-table>
 </div>

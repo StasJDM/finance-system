@@ -28,6 +28,7 @@
 
     <app-button
       *ngIf="state === 'login'"
+      variant="secondary"
       text="Регистрация"
       (click)="openRegisterForm()"
     ></app-button>
@@ -64,6 +65,7 @@
     <app-button
       *ngIf="state === 'register'"
       text="Вернуться к входу"
+      variant="secondary"
       (click)="openLoginForm()"
     ></app-button>
   </div>

@@ -1,1 +1,14 @@
-<p>expenses-page works!</p>
+<div class="expenses-page">
+  <h2>Расходы</h2>
+  <hr />
+  <div class="action-panel">
+    <span>Всего: {{ transactions.length }} исходящих транзакций</span>
+    <app-button
+      text="Создать транзакцию"
+      (click)="createTransaction()"
+    ></app-button>
+  </div>
+  <hr />
+  <app-table [columns]="tableColumns" [data]="tableData"></app-table>
+</div>
+
