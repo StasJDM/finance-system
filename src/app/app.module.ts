@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +22,12 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from './store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
+import { registerLocaleData } from '@angular/common';
+import ru from '@angular/common/locales/ru';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CreateTransactionDialogComponent } from './dialogs/create-transaction-dialog/create-transaction-dialog.component';
+
+registerLocaleData(ru);
 
 @NgModule({
   declarations: [
@@ -34,12 +40,14 @@ import { environment } from 'src/environments/environment';
     LoginPageComponent,
     InputComponent,
     ButtonComponent,
+    CreateTransactionDialogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTableModule,
+    MatDialogModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
@@ -55,6 +63,7 @@ import { environment } from 'src/environments/environment';
       useClass: TokenInterceptor,
       multi: true,
     },
+    { provide: LOCALE_ID, useValue: 'ru-RU' },
   ],
   bootstrap: [AppComponent],
 })

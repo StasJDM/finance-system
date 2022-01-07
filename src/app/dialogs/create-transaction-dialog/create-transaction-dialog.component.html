@@ -1,0 +1,11 @@
+<h2>Создать транзакцию</h2>
+Кому:
+<app-input [(ngModel)]="dialogData.id_to"></app-input>
+Сумма:
+<app-input [(ngModel)]="dialogData.amount"></app-input>
+Заголовок:
+<app-input [(ngModel)]="dialogData.label"></app-input>
+<div class="button-container">
+  <app-button mat-dialog-close text="Создать"></app-button>
+  <app-button mat-dialog-close text="Отмена" variant="secondary"></app-button>
+</div>
