@@ -3,8 +3,15 @@ import { IAppConfig } from '..';
 import { login, logout } from '../actions/app-config.actions';
 
 export const reducer = createReducer(
-  { isLogin: false },
-  on(login, (state: IAppConfig) => ({ ...state, isLogin: true })),
+  { isLogin: false, id: '', email: '', first_name: '', last_name: '' },
+  on(login, (state: IAppConfig, { id, email, first_name, last_name }) => ({
+    ...state,
+    isLogin: true,
+    id,
+    email,
+    first_name,
+    last_name,
+  })),
   on(logout, (state: IAppConfig) => ({ ...state, isLogin: false }))
 );
 

@@ -23,7 +23,9 @@ export class AuthService {
   public isAuthenticated(): boolean {
     const isAuthenticated = !this._jwtHelper.isTokenExpired(this.getToken());
     if (isAuthenticated) {
-      this._store.dispatch(login());
+      const token_data: { id: string; email: string; first_name: string; last_name: string } =
+        this._jwtHelper.decodeToken(this.getToken());
+      this._store.dispatch(login(token_data));
     }
     return isAuthenticated;
   }
@@ -36,7 +38,11 @@ export class AuthService {
       })
       .pipe(
         tap((res: ILoginResponse) => localStorage.setItem('access_token', res.access_token)),
-        tap(() => this._store.dispatch(login()))
+        tap((res: ILoginResponse) => {
+          const token_data: { id: string; email: string; first_name: string; last_name: string } =
+            this._jwtHelper.decodeToken(res.access_token);
+          this._store.dispatch(login(token_data));
+        })
       );
   }
 

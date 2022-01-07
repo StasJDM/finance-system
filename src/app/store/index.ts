@@ -3,6 +3,10 @@ import { reducer } from './reducers/app-config.reducers';
 
 export interface IAppConfig {
   isLogin: boolean;
+  id: string;
+  email: string;
+  first_name: string;
+  last_name: string;
 }
 
 export interface IAppState {
