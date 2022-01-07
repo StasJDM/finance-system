@@ -28,3 +28,10 @@
     background: #0061a8;
   }
 }
+
+.menu-items {
+  display: flex;
+  justify-content: space-between;
+  height: calc(100% - 37px);
+  flex-direction: column;
+}

@@ -4,7 +4,7 @@ import { tap } from 'rxjs/operators';
 import { ApiService } from './api.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Store } from '@ngrx/store';
-import { login } from '../store/actions/app-config.actions';
+import { login, logout } from '../store/actions/app-config.actions';
 
 export interface ILoginResponse {
   access_token: string;
@@ -48,5 +48,10 @@ export class AuthService {
 
   public register(firstName: string, lastName: string, email: string, password: string): Observable<any> {
     return this._apiService.post('/auth/register', { first_name: firstName, last_name: lastName, email, password });
+  }
+
+  public logout(): void {
+    localStorage.clear();
+    this._store.dispatch(logout());
   }
 }

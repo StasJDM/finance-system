@@ -1,12 +1,19 @@
 <div class="menu" *ngIf="isEnabled">
   <div class="menu-title"><b>Finance System</b></div>
-  <ng-container *ngFor="let item of menuItems">
-    <div
-      class="menu-item"
-      [ngClass]="{ active: item.isActive }"
-      [routerLink]="item.link"
-    >
-      {{ item.title }}
+  <div class="menu-items">
+    <div>
+      <ng-container *ngFor="let item of menuItems">
+        <div
+          class="menu-item"
+          [ngClass]="{ active: item.isActive }"
+          [routerLink]="item.link"
+        >
+          {{ item.title }}
+        </div>
+      </ng-container>
     </div>
-  </ng-container>
+    <div>
+      <div class="menu-item" (click)="logout()">Выйти</div>
+    </div>
+  </div>
 </div>
