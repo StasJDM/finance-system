@@ -12,6 +12,15 @@ button {
   border: none;
   cursor: pointer;
 
+  &.secondary {
+    background: #dadada;
+    color: #525252;
+
+    &:hover {
+      background: #b9b9b9;
+    }
+  }
+
   &:hover {
     background: #0061a8;
   }
