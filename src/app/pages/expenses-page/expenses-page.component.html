@@ -1,5 +1,12 @@
 <div class="expenses-page">
-  <h2>Расходы</h2>
+  <div class="header">
+    <h2>Расходы</h2>
+    <app-input
+      placeholder="Поиск..."
+      [isSearchable]="true"
+      (searchClicked)="onSearch($event)"
+    ></app-input>
+  </div>
   <hr />
   <div class="action-panel">
     <span>Всего: {{ transactions.length }} исходящих транзакций</span>
@@ -11,4 +18,3 @@
   <hr />
   <app-table [columns]="tableColumns" [data]="tableData"></app-table>
 </div>
-

@@ -52,4 +52,6 @@ export class IncomePageComponent implements OnInit {
       this.createTransactionData = this._initialCreateTransactionData;
     });
   }
+
+  onSearch(searchString: string): void {}
 }

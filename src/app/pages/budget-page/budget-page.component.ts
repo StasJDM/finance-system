@@ -149,4 +149,6 @@ export class BudgetPageComponent implements OnInit {
       this.createTransactionData = this._initialCreateTransactionData;
     });
   }
+
+  onSearch(searchString: string): void {}
 }

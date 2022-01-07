@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input } from '@angular/core';
+import { Component, EventEmitter, forwardRef, Input, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -24,6 +24,9 @@ export class InputComponent implements ControlValueAccessor {
   get value(): string {
     return this._value;
   }
+  @Input() public isSearchable = false;
+
+  @Output() public searchClicked = new EventEmitter<string>();
 
   private _value: string = '';
 
@@ -40,5 +43,9 @@ export class InputComponent implements ControlValueAccessor {
 
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
+  }
+
+  onClickSearch(): void {
+    this.searchClicked.emit(this.value);
   }
 }

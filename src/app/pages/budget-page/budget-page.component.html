@@ -1,5 +1,12 @@
 <div class="budget-page">
-  <h2>Мой бюджет</h2>
+  <div class="header">
+    <h2>Мой бюджет</h2>
+    <app-input
+      placeholder="Поиск..."
+      [isSearchable]="true"
+      (searchClicked)="onSearch($event)"
+    ></app-input>
+  </div>
   <hr />
   <div class="action-panel">
     <span>Всего: {{ transactions.length }} транзакций</span>
