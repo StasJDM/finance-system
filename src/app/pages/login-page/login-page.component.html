@@ -1,10 +1,17 @@
 <div class="login-page">
   <div class="form-container">
-    <h2>Вход в приложение</h2>
+    <h2 *ngIf="state === 'login'">Вход в приложение</h2>
+    <h2 *ngIf="state === 'register'">Регистрация</h2>
+
     <div *ngIf="isError" class="error-container">
-      <span>Login failed</span>
+      <span>Произошла ошибка</span>
     </div>
-    <form [formGroup]="form" (ngSubmit)="login()">
+
+    <form
+      *ngIf="state === 'login'"
+      [formGroup]="loginForm"
+      (ngSubmit)="login()"
+    >
       <app-input
         formControlName="email"
         placeholder="E-mail"
@@ -17,7 +24,47 @@
       ></app-input>
 
       <app-button text="Вход"></app-button>
-      <app-button text="Регистрация"></app-button>
     </form>
+
+    <app-button
+      *ngIf="state === 'login'"
+      text="Регистрация"
+      (click)="openRegisterForm()"
+    ></app-button>
+
+    <form
+      *ngIf="state === 'register'"
+      [formGroup]="registerForm"
+      (ngSubmit)="register()"
+    >
+      <app-input
+        formControlName="firstName"
+        placeholder="Имя"
+        type="text"
+      ></app-input>
+      <app-input
+        formControlName="lastName"
+        placeholder="Фамилия"
+        type="text"
+      ></app-input>
+      <app-input
+        formControlName="email"
+        placeholder="E-mail"
+        type="text"
+      ></app-input>
+      <app-input
+        formControlName="password"
+        placeholder="Пароль"
+        type="password"
+      ></app-input>
+
+      <app-button text="Зарегистрироваться"></app-button>
+    </form>
+
+    <app-button
+      *ngIf="state === 'register'"
+      text="Вернуться к входу"
+      (click)="openLoginForm()"
+    ></app-button>
   </div>
 </div>

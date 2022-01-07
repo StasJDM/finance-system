@@ -39,4 +39,8 @@ export class AuthService {
         tap(() => this._store.dispatch(login()))
       );
   }
+
+  public register(firstName: string, lastName: string, email: string, password: string): Observable<any> {
+    return this._apiService.post('/auth/register', { first_name: firstName, last_name: lastName, email, password });
+  }
 }

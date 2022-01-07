@@ -9,18 +9,37 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login-page.component.scss'],
 })
 export class LoginPageComponent {
-  public form: FormGroup;
+  public loginForm: FormGroup;
+  public registerForm: FormGroup;
+  public state: 'login' | 'register' = 'login';
   public isError = false;
 
   constructor(private _fb: FormBuilder, private _authService: AuthService, private _router: Router) {
-    this.form = this._fb.group({
+    this.loginForm = this._fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+    });
+
+    this.registerForm = this._fb.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
     });
   }
 
-  login() {
-    const { email, password } = this.form.value;
+  openRegisterForm(): void {
+    this.isError = false;
+    this.state = 'register';
+  }
+
+  openLoginForm(): void {
+    this.isError = false;
+    this.state = 'login';
+  }
+
+  login(): void {
+    const { email, password } = this.loginForm.value;
     this._authService.login(email, password).subscribe(
       (res) => {
         this.isError = false;
@@ -28,7 +47,19 @@ export class LoginPageComponent {
       },
       (err) => {
         this.isError = true;
-        this.form.reset();
+        this.loginForm.reset();
+      }
+    );
+  }
+
+  register(): void {
+    const { firstName, lastName, email, password } = this.registerForm.value;
+    this._authService.register(firstName, lastName, email, password).subscribe(
+      (res) => {
+        this.openLoginForm();
+      },
+      (err) => {
+        this.isError = true;
       }
     );
   }
