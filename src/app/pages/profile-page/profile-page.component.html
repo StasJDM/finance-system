@@ -1,0 +1,31 @@
+<div class="profile-page">
+  <div class="header">
+    <h2>Мой профиль</h2>
+  </div>
+  <hr />
+  <div>
+    <form
+      class="user-info-form"
+      [formGroup]="userInfoForm"
+      (ngSubmit)="saveUserInfo()"
+    >
+      <app-input
+        formControlName="firstName"
+        placeholder="Имя"
+        type="text"
+      ></app-input>
+      <app-input
+        formControlName="lastName"
+        placeholder="Фамилия"
+        type="text"
+      ></app-input>
+      <app-input
+        formControlName="email"
+        placeholder="E-mail"
+        type="text"
+      ></app-input>
+
+      <app-button text="Сохранить"></app-button>
+    </form>
+  </div>
+</div>

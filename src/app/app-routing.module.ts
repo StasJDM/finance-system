@@ -5,6 +5,7 @@ import { BudgetPageComponent } from './pages/budget-page/budget-page.component';
 import { ExpensesPageComponent } from './pages/expenses-page/expenses-page.component';
 import { IncomePageComponent } from './pages/income-page/income-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 const routes: Routes = [
   { path: 'budget', component: BudgetPageComponent, canActivate: [AuthGuard] },
@@ -14,6 +15,7 @@ const routes: Routes = [
     component: ExpensesPageComponent,
     canActivate: [AuthGuard],
   },
+  { path: 'profile', component: ProfilePageComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginPageComponent },
   { path: '**', redirectTo: '/budget' },
 ];

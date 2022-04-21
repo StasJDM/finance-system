@@ -1,16 +1,19 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { IAppConfig } from '..';
-import { login, logout } from '../actions/app-config.actions';
+import { login, logout, setUserData } from '../actions/app-config.actions';
 
 export const reducer = createReducer(
-  { isLogin: false, id: '', email: '', first_name: '', last_name: '' },
-  on(login, (state: IAppConfig, { id, email, first_name, last_name }) => ({
+  { isLogin: false, id: '', email: '', firstName: '', lastName: '' },
+  on(login, (state: IAppConfig) => ({
     ...state,
     isLogin: true,
+  })),
+  on(setUserData, (state: IAppConfig, { id, email, firstName, lastName }) => ({
+    ...state,
     id,
     email,
-    first_name,
-    last_name,
+    firstName,
+    lastName,
   })),
   on(logout, (state: IAppConfig) => ({ ...state, isLogin: false }))
 );

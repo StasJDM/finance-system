@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { MenuItem, menuItems } from './menu-items';
+import { MenuItem, menuItemsBottom, menuItemsTop } from './menu-items';
 
 @Component({
   selector: 'app-menu',
@@ -10,13 +10,14 @@ import { MenuItem, menuItems } from './menu-items';
 })
 export class MenuComponent {
   @Input() public isEnabled: boolean = false;
-  public menuItems: MenuItem[] = menuItems;
+  public menuItemsTop: MenuItem[] = menuItemsTop;
+  public menuItemsBottom: MenuItem[] = menuItemsBottom;
 
   constructor(private _router: Router, private _authService: AuthService) {
     this._router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         const url = event.urlAfterRedirects;
-        this.menuItems.forEach((item) => {
+        [...this.menuItemsTop, ...this.menuItemsBottom].forEach((item) => {
           item.isActive = item.link === url;
         });
       }

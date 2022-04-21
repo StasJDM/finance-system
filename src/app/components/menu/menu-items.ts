@@ -4,7 +4,7 @@ export interface MenuItem {
   isActive: boolean;
 }
 
-export const menuItems = [
+export const menuItemsTop = [
   {
     title: 'Мой бюджет',
     link: '/budget',
@@ -18,6 +18,14 @@ export const menuItems = [
   {
     title: 'Расходы',
     link: '/expenses',
+    isActive: false,
+  },
+];
+
+export const menuItemsBottom = [
+  {
+    title: 'Мой профиль',
+    link: 'profile',
     isActive: false,
   },
 ];

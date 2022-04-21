@@ -27,6 +27,7 @@ import ru from '@angular/common/locales/ru';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CreateTransactionDialogComponent } from './dialogs/create-transaction-dialog/create-transaction-dialog.component';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 registerLocaleData(ru);
 
@@ -42,6 +43,7 @@ registerLocaleData(ru);
     InputComponent,
     ButtonComponent,
     CreateTransactionDialogComponent,
+    ProfilePageComponent,
   ],
   imports: [
     BrowserModule,

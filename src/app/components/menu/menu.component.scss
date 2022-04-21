@@ -8,8 +8,9 @@
 }
 
 .menu-title {
-  padding: 16px 16px;
+  padding: 24px 16px;
   border-bottom: 2px solid #fff;
+  font-size: 24px;
 
   cursor: pointer;
 }
@@ -35,6 +36,6 @@
 .menu-items {
   display: flex;
   justify-content: space-between;
-  height: calc(100% - 57px);
+  height: calc(100% - 70px);
   flex-direction: column;
 }

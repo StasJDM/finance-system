@@ -1,0 +1,13 @@
+.profile-page {
+    margin: 16px;
+
+    .user-info-form{
+        width: 600px;
+        display: flex;
+        flex-direction: column;
+
+        app-button {
+            width: 110px;
+        }
+    }
+}

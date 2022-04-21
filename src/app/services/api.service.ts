@@ -22,6 +22,10 @@ export class ApiService {
     return this._http.put(API_URL + url, body);
   }
 
+  patch(url: string, body: any): Observable<any> {
+    return this._http.patch(API_URL + url, body);
+  }
+
   delete(url: string, params: any): Observable<any> {
     return this._http.delete(API_URL + url, { params });
   }
