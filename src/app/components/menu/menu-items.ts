@@ -20,6 +20,11 @@ export const menuItemsTop = [
     link: '/expenses',
     isActive: false,
   },
+  {
+    title: ' Новости',
+    link: '/news',
+    isActive: false,
+  },
 ];
 
 export const menuItemsBottom = [

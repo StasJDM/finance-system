@@ -1,0 +1,22 @@
+<div class="news-page">
+  <div class="header">
+    <h2>Новости</h2>
+  </div>
+  <hr />
+  <div>
+    <div
+      *ngFor="let item of news"
+      class="news-card"
+      [routerLink]="'/view-news/' + item.id"
+    >
+      {{ "news/" + item.id }}
+      <div class="news-header">
+        <h3>
+          <b>{{ item.title }}</b>
+        </h3>
+        <hr />
+      </div>
+      <div class="news-content">{{ item.content | slice: 0:350 }}...</div>
+    </div>
+  </div>
+</div>

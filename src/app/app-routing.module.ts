@@ -5,6 +5,8 @@ import { BudgetPageComponent } from './pages/budget-page/budget-page.component';
 import { ExpensesPageComponent } from './pages/expenses-page/expenses-page.component';
 import { IncomePageComponent } from './pages/income-page/income-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { NewsPageComponent } from './pages/news-page/news-page.component';
+import { OneNewsPageComponent } from './pages/one-news-page/one-news-page.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 const routes: Routes = [
@@ -16,6 +18,22 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: 'profile', component: ProfilePageComponent, canActivate: [AuthGuard] },
+  {
+    path: 'news',
+    component: NewsPageComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'view-news',
+    component: OneNewsPageComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: ':id',
+        component: OneNewsPageComponent,
+      },
+    ],
+  },
   { path: 'login', component: LoginPageComponent },
   { path: '**', redirectTo: '/budget' },
 ];

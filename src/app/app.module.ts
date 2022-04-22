@@ -28,6 +28,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { CreateTransactionDialogComponent } from './dialogs/create-transaction-dialog/create-transaction-dialog.component';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
+import { NewsPageComponent } from './pages/news-page/news-page.component';
+import { OneNewsPageComponent } from './pages/one-news-page/one-news-page.component';
 
 registerLocaleData(ru);
 
@@ -44,6 +46,8 @@ registerLocaleData(ru);
     ButtonComponent,
     CreateTransactionDialogComponent,
     ProfilePageComponent,
+    NewsPageComponent,
+    OneNewsPageComponent,
   ],
   imports: [
     BrowserModule,

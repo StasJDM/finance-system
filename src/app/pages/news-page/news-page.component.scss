@@ -1,0 +1,31 @@
+.news-page {
+  margin: 16px;
+
+  .news-card {
+    width: 100%;
+    border: 1px solid #dadada;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 5px #a1a1a1;
+    cursor: pointer;
+
+    .news-header {
+      width: fit-content;
+
+      h3 {
+        font-size: 18px;
+        margin-bottom: 0px;
+
+        &:hover {
+          color: #2978b5;
+        }
+      }
+    }
+
+    .news-content {
+      font-size: 16px;
+    }
+  }
+}

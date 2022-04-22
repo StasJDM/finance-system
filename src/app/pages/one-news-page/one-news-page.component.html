@@ -1,0 +1,12 @@
+<div class="one-news-page">
+  <div class="header">
+    <h2>{{ news.title }}</h2>
+  </div>
+  <hr />
+  <div class="news-content">
+    {{ news.content }}
+  </div>
+  <div class="news-date">
+    Дата публикации: {{ news.createdAt | date: "medium" }}
+  </div>
+</div>
