@@ -8,6 +8,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { NewsPageComponent } from './pages/news-page/news-page.component';
 import { OneNewsPageComponent } from './pages/one-news-page/one-news-page.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
+import { TransactionsPageComponent } from './pages/transactions-page/transactions-page.component';
 
 const routes: Routes = [
   { path: 'budget', component: BudgetPageComponent, canActivate: [AuthGuard] },
@@ -34,6 +35,7 @@ const routes: Routes = [
       },
     ],
   },
+  { path: 'transactions', component: TransactionsPageComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginPageComponent },
   { path: '**', redirectTo: '/budget' },
 ];

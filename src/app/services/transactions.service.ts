@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ApiService } from './api.service';
+import { Category } from './category.service';
+import { User } from './users.service';
 
 export interface Transaction {
   id: string;
@@ -9,6 +11,9 @@ export interface Transaction {
   id_to: string;
   amount: number;
   label: string;
+  from?: User;
+  to?: User;
+  categories?: Category[];
   createdAt: string;
   updatedAt: string;
 }

@@ -30,6 +30,9 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { NewsPageComponent } from './pages/news-page/news-page.component';
 import { OneNewsPageComponent } from './pages/one-news-page/one-news-page.component';
+import { TransactionsPageComponent } from './pages/transactions-page/transactions-page.component';
+import { CategoryComponent } from './components/category/category.component';
+import { TransactionCardComponent } from './components/transaction-card/transaction-card.component';
 
 registerLocaleData(ru);
 
@@ -48,6 +51,9 @@ registerLocaleData(ru);
     ProfilePageComponent,
     NewsPageComponent,
     OneNewsPageComponent,
+    TransactionsPageComponent,
+    CategoryComponent,
+    TransactionCardComponent,
   ],
   imports: [
     BrowserModule,

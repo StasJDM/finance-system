@@ -1,0 +1,28 @@
+.transaction-card {
+  border: 1px solid #dadada;
+  border-radius: 4px;
+  margin: 16px 0;
+  padding: 16px;
+
+  &.incoming {
+    background: #d9ffe8;
+
+    .amount {
+      color: #48c85d;
+    }
+  }
+
+  &.outgoing {
+    background: #ffd9d9;
+
+    .amount {
+      color: #cf4646;
+    }
+  }
+
+  .label,
+  .amount {
+    font-weight: 500;
+    margin-right: 4px;
+  }
+}

@@ -1,0 +1,12 @@
+.transactions-page {
+  margin: 16px;
+
+  .categories {
+    display: flex;
+
+    app-category {
+      margin: 0 4px;
+      cursor: pointer;
+    }
+  }
+}

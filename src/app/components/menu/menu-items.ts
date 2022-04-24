@@ -25,6 +25,11 @@ export const menuItemsTop = [
     link: '/news',
     isActive: false,
   },
+  {
+    title: 'Транзакции',
+    link: '/transactions',
+    isActive: false,
+  },
 ];
 
 export const menuItemsBottom = [

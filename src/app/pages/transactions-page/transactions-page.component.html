@@ -1,0 +1,22 @@
+<div class="transactions-page">
+  <div class="header">
+    <h2>Транзакции</h2>
+  </div>
+  <hr />
+  <div>
+    <div class="categories">
+      <app-category
+        *ngFor="let category of categories"
+        [text]="category.label"
+      ></app-category>
+    </div>
+    <app-transaction-card
+      *ngFor="let transaction of transactions"
+      [transaction]="transaction"
+      [direction]="
+        userInfo.id === transaction.id_from ? 'outgoing' : 'incoming'
+      "
+    >
+    </app-transaction-card>
+  </div>
+</div>
