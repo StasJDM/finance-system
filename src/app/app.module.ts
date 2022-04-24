@@ -33,6 +33,8 @@ import { OneNewsPageComponent } from './pages/one-news-page/one-news-page.compon
 import { TransactionsPageComponent } from './pages/transactions-page/transactions-page.component';
 import { CategoryComponent } from './components/category/category.component';
 import { TransactionCardComponent } from './components/transaction-card/transaction-card.component';
+import { ActionButtonComponent } from './components/action-button/action-button.component';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 registerLocaleData(ru);
 
@@ -54,6 +56,7 @@ registerLocaleData(ru);
     TransactionsPageComponent,
     CategoryComponent,
     TransactionCardComponent,
+    ActionButtonComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +67,7 @@ registerLocaleData(ru);
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    OverlayModule,
     StoreModule.forRoot(reducers, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production, autoPause: true }),
     NgxEchartsModule.forRoot({

@@ -1,7 +1,10 @@
 <div class="transaction-card" [ngClass]="direction">
-  <div>
-    <span class="label">{{ transaction.label }}</span>
-    <span class="amount">{{ transaction.amount }}</span>
+  <div class="transaction-card-top">
+    <div>
+      <span class="label">{{ transaction.label }}</span>
+      <span class="amount">{{ transaction.amount }}</span>
+    </div>
+    <app-action-button [items]="transactionActionsItems"></app-action-button>
   </div>
   <div>
     <span class="from">
@@ -11,6 +14,7 @@
     <span class="to">
       {{ transaction.to?.firstName + " " + transaction.to?.lastName }}
     </span>
+
     <app-category
       *ngFor="let category of transaction.categories"
       [text]="category.label"

@@ -24,5 +24,7 @@ export class TransactionCardComponent {
   };
   @Input() direction: TransactionDirection = TransactionDirection.Incoming;
 
+  public transactionActionsItems = [{ id: 0, text: 'Добавить категорию' }];
+
   constructor() {}
 }

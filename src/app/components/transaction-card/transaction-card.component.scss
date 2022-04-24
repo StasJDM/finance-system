@@ -3,6 +3,12 @@
   border-radius: 4px;
   margin: 16px 0;
   padding: 16px;
+  width: 720px;
+
+  .transaction-card-top {
+    display: flex;
+    justify-content: space-between;
+  }
 
   &.incoming {
     background: #d9ffe8;

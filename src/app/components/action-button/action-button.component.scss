@@ -1,0 +1,41 @@
+:host {
+  display: flex;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  cursor: pointer;
+
+  svg {
+    fill: #555555;
+
+    :hover {
+      fill: #3b3b3b;
+    }
+  }
+}
+
+.actions-list {
+  list-style-type: none;
+  background: white;
+  border: 1px solid #dadada;
+  border-radius: 4px;
+
+  .item {
+    padding: 4px 8px;
+    font-weight: 500px;
+
+    &:hover {
+      background: #eaeaea;
+      cursor: pointer;
+    }
+  }
+}
+
+.shadow-background {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
