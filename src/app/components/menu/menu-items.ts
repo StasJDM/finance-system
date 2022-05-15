@@ -30,6 +30,11 @@ export const menuItemsTop = [
     link: '/transactions',
     isActive: false,
   },
+  {
+    title: 'Заметки',
+    link: '/notes',
+    isActive: false,
+  },
 ];
 
 export const menuItemsBottom = [

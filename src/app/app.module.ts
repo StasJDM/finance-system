@@ -39,6 +39,8 @@ import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { MatSelectModule } from '@angular/material/select';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { NotesPageComponent } from './pages/notes-page/notes-page.component';
+import { CreateNoteDialogComponent } from './dialogs/create-note-dialog/create-note-dialog.component';
 
 registerLocaleData(ru);
 
@@ -54,6 +56,7 @@ registerLocaleData(ru);
     InputComponent,
     ButtonComponent,
     CreateTransactionDialogComponent,
+    CreateNoteDialogComponent,
     ProfilePageComponent,
     NewsPageComponent,
     OneNewsPageComponent,
@@ -63,6 +66,7 @@ registerLocaleData(ru);
     ActionButtonComponent,
     AdminPageComponent,
     DropdownComponent,
+    NotesPageComponent,
   ],
   imports: [
     BrowserModule,

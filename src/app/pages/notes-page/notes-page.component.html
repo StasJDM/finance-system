@@ -1,0 +1,19 @@
+<div class="notes-page">
+  <div class="header">
+    <h2>Заметки</h2>
+  </div>
+  <hr />
+  <div class="action-panel">
+    <span>Всего: {{ notes.length }} заметок</span>
+    <app-button text="Создать заметку" (click)="createNote()"></app-button>
+  </div>
+  <hr />
+  <div>
+    <div *ngFor="let note of notes" class="note">
+      <h4>{{ note.title }}</h4>
+      <div>
+        {{ note.content }}
+      </div>
+    </div>
+  </div>
+</div>

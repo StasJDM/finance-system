@@ -7,6 +7,7 @@ import { ExpensesPageComponent } from './pages/expenses-page/expenses-page.compo
 import { IncomePageComponent } from './pages/income-page/income-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { NewsPageComponent } from './pages/news-page/news-page.component';
+import { NotesPageComponent } from './pages/notes-page/notes-page.component';
 import { OneNewsPageComponent } from './pages/one-news-page/one-news-page.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { TransactionsPageComponent } from './pages/transactions-page/transactions-page.component';
@@ -51,6 +52,11 @@ const routes: Routes = [
   {
     path: 'transactions',
     component: TransactionsPageComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'notes',
+    component: NotesPageComponent,
     canActivate: [AuthGuard],
   },
   {

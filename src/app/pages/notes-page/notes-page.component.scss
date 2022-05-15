@@ -1,0 +1,26 @@
+.notes-page {
+  margin: 16px;
+
+  .action-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2px;
+
+    span {
+      color: #707070;
+      font-weight: 600;
+      font-size: 15px;
+    }
+  }
+
+  .note {
+    border: 1px solid #dadada;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 8px;
+    box-shadow: 2px 2px 5px #a1a1a1;
+    min-width: 520px;
+    width: fit-content;
+  }
+}

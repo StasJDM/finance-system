@@ -1,0 +1,9 @@
+<h2>Создать заметку</h2>
+Заголовок:
+<app-input [(ngModel)]="dialogData.title"></app-input>
+Контент:
+<app-input [(ngModel)]="dialogData.content"></app-input>
+<div class="button-container">
+  <app-button mat-dialog-close text="Создать"></app-button>
+  <app-button mat-dialog-close text="Отмена" variant="secondary"></app-button>
+</div>
