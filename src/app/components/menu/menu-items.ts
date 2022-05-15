@@ -34,6 +34,11 @@ export const menuItemsTop = [
 
 export const menuItemsBottom = [
   {
+    title: 'Администрирование',
+    link: '/admin',
+    isActive: false,
+  },
+  {
     title: 'Мой профиль',
     link: 'profile',
     isActive: false,

@@ -35,6 +35,10 @@ import { CategoryComponent } from './components/category/category.component';
 import { TransactionCardComponent } from './components/transaction-card/transaction-card.component';
 import { ActionButtonComponent } from './components/action-button/action-button.component';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { AdminPageComponent } from './pages/admin-page/admin-page.component';
+import { MatSelectModule } from '@angular/material/select';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 registerLocaleData(ru);
 
@@ -57,6 +61,8 @@ registerLocaleData(ru);
     CategoryComponent,
     TransactionCardComponent,
     ActionButtonComponent,
+    AdminPageComponent,
+    DropdownComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,6 +74,8 @@ registerLocaleData(ru);
     FormsModule,
     ReactiveFormsModule,
     OverlayModule,
+    MatFormFieldModule,
+    MatSelectModule,
     StoreModule.forRoot(reducers, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production, autoPause: true }),
     NgxEchartsModule.forRoot({

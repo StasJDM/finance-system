@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
+import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { BudgetPageComponent } from './pages/budget-page/budget-page.component';
 import { ExpensesPageComponent } from './pages/expenses-page/expenses-page.component';
 import { IncomePageComponent } from './pages/income-page/income-page.component';
@@ -11,14 +12,26 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
 import { TransactionsPageComponent } from './pages/transactions-page/transactions-page.component';
 
 const routes: Routes = [
-  { path: 'budget', component: BudgetPageComponent, canActivate: [AuthGuard] },
-  { path: 'income', component: IncomePageComponent, canActivate: [AuthGuard] },
+  {
+    path: 'budget',
+    component: BudgetPageComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'income',
+    component: IncomePageComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'expenses',
     component: ExpensesPageComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'profile', component: ProfilePageComponent, canActivate: [AuthGuard] },
+  {
+    path: 'profile',
+    component: ProfilePageComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'news',
     component: NewsPageComponent,
@@ -35,8 +48,20 @@ const routes: Routes = [
       },
     ],
   },
-  { path: 'transactions', component: TransactionsPageComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginPageComponent },
+  {
+    path: 'transactions',
+    component: TransactionsPageComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin',
+    component: AdminPageComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'login',
+    component: LoginPageComponent,
+  },
   { path: '**', redirectTo: '/budget' },
 ];
 
