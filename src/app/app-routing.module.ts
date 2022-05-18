@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { BudgetPageComponent } from './pages/budget-page/budget-page.component';
+import { ContactsPageComponent } from './pages/contacts-page/contacts-page.component';
 import { ExpensesPageComponent } from './pages/expenses-page/expenses-page.component';
 import { IncomePageComponent } from './pages/income-page/income-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -62,6 +63,11 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminPageComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'contacts',
+    component: ContactsPageComponent,
     canActivate: [AuthGuard],
   },
   {

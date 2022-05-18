@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Store } from '@ngrx/store';
+import { filter } from 'rxjs/operators';
 import { CreateTransactionDialogComponent } from 'src/app/dialogs/create-transaction-dialog/create-transaction-dialog.component';
 import { Transaction, TransactionsService } from 'src/app/services/transactions.service';
+import { User, UsersService } from 'src/app/services/users.service';
+import { selectUserInfo } from 'src/app/store/selectors/app-config.selectors';
 
 export interface TransactionTableData {
   label: string;
@@ -18,11 +22,29 @@ export class IncomePageComponent implements OnInit {
   public tableColumns = ['label', 'amount', 'date'];
   public transactions: Transaction[] = [];
   public tableData: TransactionTableData[] = [];
-  public createTransactionData = { id_to: '', amount: 0, label: '' };
+  public createTransactionData: { id_to: string; amount: number; label: string; contacts: any[] } = {
+    id_to: '',
+    amount: 0,
+    label: '',
+    contacts: [],
+  };
+  public userId: string = '';
+  public user: User = { id: '', lastName: '', firstName: '', email: '', contacts: [] };
+  public contacts: any[] = [];
 
-  private _initialCreateTransactionData = { id_to: '', amount: 0, label: '' };
+  private _initialCreateTransactionData: { id_to: string; amount: number; label: string; contacts: any[] } = {
+    id_to: '',
+    amount: 0,
+    label: '',
+    contacts: [],
+  };
 
-  constructor(private _transactionService: TransactionsService, private _matDialog: MatDialog) {}
+  constructor(
+    private _transactionService: TransactionsService,
+    private _matDialog: MatDialog,
+    private _userService: UsersService,
+    private _store: Store
+  ) {}
 
   ngOnInit(): void {
     this._transactionService.getIncomingTransactions().subscribe((transactions) => {
@@ -33,6 +55,23 @@ export class IncomePageComponent implements OnInit {
         date: transaction.createdAt,
       }));
     });
+    this._store
+      .select(selectUserInfo)
+      .pipe(filter((user) => user.id !== ''))
+      .subscribe((userInfo) => {
+        this.userId = userInfo.id;
+        this._userService.getUser(userInfo.id).subscribe((user) => {
+          this.user = user;
+          this.contacts = user.contacts.map((contact) => {
+            return this.userId === contact.userIdFrom ? contact.userTo : contact.userFrom;
+          });
+          this.createTransactionData.contacts = this.contacts.map((contact) => ({
+            id: contact.id,
+            value: contact.firstName + ' ' + contact.lastName,
+          }));
+          this._initialCreateTransactionData.contacts = this.createTransactionData.contacts;
+        });
+      });
   }
 
   createTransaction(): void {

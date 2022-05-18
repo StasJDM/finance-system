@@ -1,0 +1,20 @@
+<div class="contacts-page">
+  <div class="header">
+    <h2>Контакты</h2>
+  </div>
+  <hr />
+  <div class="action-panel">
+    <span>Всего: {{ contacts.length }} контактов</span>
+    <app-button text="Добавить контакт" (selected)="addContact()"></app-button>
+  </div>
+  <hr />
+  <div>
+    <div *ngFor="let contact of contacts" class="contact">
+      <div class="name">{{ contact.firstName }} {{ contact.lastName }}</div>
+      <div class="email">
+        {{ contact.email }}
+      </div>
+      <hr />
+    </div>
+  </div>
+</div>

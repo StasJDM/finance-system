@@ -7,5 +7,11 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./create-transaction-dialog.component.scss'],
 })
 export class CreateTransactionDialogComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public dialogData: { id_to: string; amount: number; label: string }) {}
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public dialogData: { id_to: string; amount: number; label: string; contacts: any[] }
+  ) {}
+
+  changeTo(event: any) {
+    this.dialogData.id_to = event.value;
+  }
 }

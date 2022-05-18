@@ -1,6 +1,10 @@
 <h2>Создать транзакцию</h2>
 Кому:
-<app-input [(ngModel)]="dialogData.id_to"></app-input>
+<app-dropdown
+  (selected)="changeTo($event)"
+  [items]="dialogData.contacts"
+></app-dropdown>
+<br />
 Сумма:
 <app-input [(ngModel)]="dialogData.amount"></app-input>
 Заголовок:

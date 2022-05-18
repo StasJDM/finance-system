@@ -1,0 +1,8 @@
+.button-container {
+  display: flex;
+  flex-direction: row-reverse;
+
+  app-button {
+    margin-left: 8px;
+  }
+}

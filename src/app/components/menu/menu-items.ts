@@ -11,6 +11,11 @@ export const menuItemsTop = [
     isActive: false,
   },
   {
+    title: 'Контакты',
+    link: '/contacts',
+    isActive: false,
+  },
+  {
     title: 'Доходы',
     link: '/income',
     isActive: false,

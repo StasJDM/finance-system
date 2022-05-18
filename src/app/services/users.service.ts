@@ -7,6 +7,7 @@ export interface User {
   firstName: string;
   lastName: string;
   email: string;
+  contacts: any[];
 }
 
 @Injectable({
@@ -25,5 +26,9 @@ export class UsersService {
 
   public getAllUsers(): Observable<User[]> {
     return this._apiService.get('/users/', {});
+  }
+
+  public addContact(contactId: string): Observable<any> {
+    return this._apiService.post('/users/contacts/' + contactId, {});
   }
 }

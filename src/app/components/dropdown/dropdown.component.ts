@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 export interface Item {
   id: number;
@@ -11,17 +10,14 @@ export interface Item {
   templateUrl: './dropdown.component.html',
   styleUrls: ['./dropdown.component.scss'],
 })
-export class DropdownComponent implements OnInit {
+export class DropdownComponent {
   @Input() public items: Item[] = [];
 
   @Output() public selected = new EventEmitter<any>();
 
   @Input() public selectedItem: Item;
 
-  ngOnInit(): void {}
-
   select(event: Event): void {
-    console.log(event);
     this.selected.emit(event);
   }
 }

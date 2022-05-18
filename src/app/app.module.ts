@@ -41,6 +41,8 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NotesPageComponent } from './pages/notes-page/notes-page.component';
 import { CreateNoteDialogComponent } from './dialogs/create-note-dialog/create-note-dialog.component';
+import { ContactsPageComponent } from './pages/contacts-page/contacts-page.component';
+import { CreateContactDialogComponent } from './dialogs/create-contact-dialog/create-contact-dialog.component';
 
 registerLocaleData(ru);
 
@@ -57,6 +59,7 @@ registerLocaleData(ru);
     ButtonComponent,
     CreateTransactionDialogComponent,
     CreateNoteDialogComponent,
+    CreateContactDialogComponent,
     ProfilePageComponent,
     NewsPageComponent,
     OneNewsPageComponent,
@@ -67,6 +70,7 @@ registerLocaleData(ru);
     AdminPageComponent,
     DropdownComponent,
     NotesPageComponent,
+    ContactsPageComponent,
   ],
   imports: [
     BrowserModule,
