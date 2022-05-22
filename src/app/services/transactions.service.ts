@@ -28,6 +28,18 @@ export class TransactionsService {
     return this._apiService.get('/transactions', {});
   }
 
+  public getAllTransactionsGroupByMonth(): Observable<Transaction[]> {
+    return this._apiService.get('/transactions/month', {});
+  }
+
+  public getIncomingTransactionsGroupByMonth(): Observable<Transaction[]> {
+    return this._apiService.get('/transactions/month/incoming', {});
+  }
+
+  public getOutgoingTransactionsGroupByMonth(): Observable<Transaction[]> {
+    return this._apiService.get('/transactions/month/outgoing', {});
+  }
+
   public getAllTransactionsAmount(): Observable<{ incoming: number; outgoing: number }> {
     return this._apiService.get('/transactions/amount', {});
   }

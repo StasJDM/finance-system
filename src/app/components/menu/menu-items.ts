@@ -26,6 +26,11 @@ export const menuItemsTop = [
     isActive: false,
   },
   {
+    title: 'Аналитика',
+    link: '/analytics',
+    isActive: false,
+  },
+  {
     title: ' Новости',
     link: '/news',
     isActive: false,

@@ -1,0 +1,29 @@
+<div class="analytics-page">
+  <div class="header">
+    <h2>Аналитика</h2>
+  </div>
+  <hr />
+  <div class="analytic-component">
+    <div class="pagination">
+      <div class="button" (click)="minusMonth()"><</div>
+      <div class="title">
+        Транзакции за <b>{{ months[selectedMonth] }}</b>
+      </div>
+      <div class="button" (click)="plusMonth()">></div>
+    </div>
+    <div class="content">
+      <div class="analytic-banner" *ngIf="selectedMonth > currentMonth">Прогноз на будущий период</div>
+      <div
+        *ngIf="transactionsExists"
+        echarts
+        [options]="options"
+        class="pie-chart"
+      ></div>
+      <div *ngIf="!transactionsExists">
+        <div class="no-transactions">
+          За указанный период не было совершено никаких транзакций
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

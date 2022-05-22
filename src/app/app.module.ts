@@ -43,6 +43,7 @@ import { NotesPageComponent } from './pages/notes-page/notes-page.component';
 import { CreateNoteDialogComponent } from './dialogs/create-note-dialog/create-note-dialog.component';
 import { ContactsPageComponent } from './pages/contacts-page/contacts-page.component';
 import { CreateContactDialogComponent } from './dialogs/create-contact-dialog/create-contact-dialog.component';
+import { AnalyticPageComponent } from './pages/analytic-page/analytic-page.component';
 
 registerLocaleData(ru);
 
@@ -71,6 +72,7 @@ registerLocaleData(ru);
     DropdownComponent,
     NotesPageComponent,
     ContactsPageComponent,
+    AnalyticPageComponent,
   ],
   imports: [
     BrowserModule,
