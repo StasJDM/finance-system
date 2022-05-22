@@ -10,6 +10,8 @@ export class AnalyticPageComponent implements OnInit {
   public transactionsGroups: any[] = [];
   public options: any;
   public currentMonth = new Date().getMonth();
+  public currentPeriod: any;
+  public tableColumns = ['label', 'amount', 'date'];
   public set selectedMonth(val: number) {
     if (val < 0 || val > 11) {
       return;
@@ -19,7 +21,6 @@ export class AnalyticPageComponent implements OnInit {
   public get selectedMonth(): number {
     return this._selectedMonth;
   }
-  public transactionsExists = false;
 
   public months = [
     'Январь',
@@ -41,23 +42,32 @@ export class AnalyticPageComponent implements OnInit {
 
   ngOnInit(): void {
     this._transactionService.getAllTransactionsGroupByMonth().subscribe((transactionsGroups) => {
-      console.log(transactionsGroups);
       this.transactionsGroups = transactionsGroups;
-    });
-
-    this._transactionService.getAllTransactionsAmount().subscribe((amount) => {
       this._calculateGraphOptions();
+      this.currentPeriod = this.transactionsGroups.find((tr) => tr.month === this.selectedMonth);
+      this.currentPeriod.transactions = this.currentPeriod.transactions.map((tr: any) => ({
+        ...tr,
+        date: tr.createdAt,
+      }));
     });
   }
 
   plusMonth(): void {
     this.selectedMonth++;
     this._calculateGraphOptions();
+    this.currentPeriod = this.transactionsGroups.find((tr) => tr.month === this.selectedMonth);
+    this.currentPeriod.transactions = this.currentPeriod.transactions.map((tr: any) => ({ ...tr, date: tr.createdAt }));
   }
 
   minusMonth(): void {
     this.selectedMonth--;
     this._calculateGraphOptions();
+    this.currentPeriod = this.transactionsGroups.find((tr) => tr.month === this.selectedMonth);
+    this.currentPeriod.transactions = this.currentPeriod.transactions.map((tr: any) => ({ ...tr, date: tr.createdAt }));
+  }
+
+  formatToTable(tr: any) {
+    return { ...tr, date: tr.createdAt };
   }
 
   private _calculateGraphOptions() {
@@ -102,9 +112,5 @@ export class AnalyticPageComponent implements OnInit {
         },
       ],
     };
-    this.transactionsExists = Boolean(
-      this.transactionsGroups.find((trGr) => trGr.month === this.selectedMonth)?.amount.outgoing ||
-        this.transactionsGroups.find((trGr) => trGr.month === this.selectedMonth)?.amount.incoming
-    );
   }
 }

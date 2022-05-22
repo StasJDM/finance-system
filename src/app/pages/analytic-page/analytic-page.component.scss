@@ -58,6 +58,15 @@
         margin: auto;
         width: max-content;
       }
+
+      .stats {
+        margin: 16px;
+
+        span {
+          font-size: 18px;
+          font-weight: 600;
+        }
+      }
     }
   }
 }

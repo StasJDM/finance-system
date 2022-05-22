@@ -12,14 +12,40 @@
       <div class="button" (click)="plusMonth()">></div>
     </div>
     <div class="content">
-      <div class="analytic-banner" *ngIf="selectedMonth > currentMonth">Прогноз на будущий период</div>
-      <div
-        *ngIf="transactionsExists"
-        echarts
-        [options]="options"
-        class="pie-chart"
-      ></div>
-      <div *ngIf="!transactionsExists">
+      <div class="analytic-banner" *ngIf="selectedMonth > currentMonth">
+        Прогноз на будущий период
+      </div>
+      <div *ngIf="currentPeriod">
+        <div echarts [options]="options" class="pie-chart"></div>
+        <div class="stats">
+          <div>
+            <span>Всего транзакций: {{ currentPeriod.count }}</span>
+          </div>
+
+          <div class="transaction">
+            <span>Самая крупкная транзакция</span>
+            <app-transaction-card [transaction]="currentPeriod.max">
+            </app-transaction-card>
+          </div>
+          <div class="transaction">
+            <span>Самая мелкая транзакция</span>
+            <app-transaction-card [transaction]="currentPeriod.min">
+            </app-transaction-card>
+          </div>
+
+          <div>
+            <div>
+              <h2>Все транзакции</h2>
+              <div echarts [options]="incomingOptions" class="bar-chart"></div>
+              <app-table
+                [columns]="tableColumns"
+                [data]="currentPeriod.transactions"
+              ></app-table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!currentPeriod">
         <div class="no-transactions">
           За указанный период не было совершено никаких транзакций
         </div>
